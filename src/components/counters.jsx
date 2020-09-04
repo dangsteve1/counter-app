@@ -9,15 +9,19 @@ class Counters extends Component {
       onDelete,
       onIncrement,
       onDecrement,
+      onRestart,
     } = this.props;
     return (
       <div>
         <button
           onClick={onReset}
-          className="btn btn-primary btn-sm m2"
+          className="btn btn-primary btn-sm m-2"
           disabled={counters.length === 0 ? "diabled" : ""}
         >
           Reset
+        </button>
+        <button onClick={onRestart} className="btn btn-primary btn-sm m-2">
+          Restart
         </button>
         {counters.map((counter) => (
           <Counter

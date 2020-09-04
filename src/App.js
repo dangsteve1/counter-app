@@ -8,8 +8,8 @@ class App extends Component {
     counters: [
       { id: 1, value: 0 },
       { id: 2, value: 1 },
-      { id: 3, value: 0 },
-      { id: 4, value: 0 },
+      { id: 3, value: 2 },
+      { id: 4, value: 3 },
     ],
   };
 
@@ -42,6 +42,15 @@ class App extends Component {
     this.setState({ counters });
   };
 
+  handleRestart = () => {
+    window.location.reload();
+  };
+
+  handleAdd = (counterId) => {
+    const counters = this.state.counters.filter((c) => c.id !== counterId);
+    this.setState({ counters });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -55,6 +64,8 @@ class App extends Component {
             onIncrement={this.handleIncrement}
             onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
+            onAdd={this.handleAdd}
+            onRestart={this.handleRestart}
           />
         </main>
       </React.Fragment>
